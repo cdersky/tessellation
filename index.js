@@ -75,3 +75,14 @@ var player = svg.selectAll("rect")
   'stroke': 'white',
   'stroke-width': 1,
 });
+
+// make the player draggable
+player.call (d3.behavior
+ .drag()
+ .on ('drag', function () {
+   d3.select(this)
+   .attr ({
+     x : d3.event.x,
+     y : d3.event.y
+   });
+ }));
